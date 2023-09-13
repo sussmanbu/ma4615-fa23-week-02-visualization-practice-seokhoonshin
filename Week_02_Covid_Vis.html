@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="[[Your Name]]">
+<meta name="author" content="Seokhoon Shin">
 <meta name="dcterms.date" content="2023-09-11">
 
 <title>Week 02: COVID Visualization Activity</title>
@@ -91,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p><strong><code>[[</code></strong>Your Name<strong><code>]]</code></strong> </p>
+             <p>Seokhoon Shin </p>
           </div>
   </div>
     
@@ -132,9 +132,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>I’ve include 4 different data sets. They all have the same data but have it represented in different ways. Try using the different data sets and see which ones are good for making which plots.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(covid_data_count, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> Cases)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(covid_data_orig, <span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Cases_Asian, <span class="at">color =</span> Cases_Asian) ) <span class="sc">+</span> <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 1385 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 950 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="Week_02_Covid_Vis_files/figure-html/first_plot-1.png" class="img-fluid" width="672"></p>
@@ -142,18 +142,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If you want to only look at a specific state, you can do it like this. For now, see what you can do just using <code>ggplot</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>covid_data_count <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>covid_data_race <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"MA"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> Cases, <span class="at">color =</span> race)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Total_count, <span class="at">y =</span> Asian_count, <span class="at">color =</span> Asian_count)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Week_02_Covid_Vis_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ol type="1">
-<li>Write code for a plot and describe what you observe?</li>
-<li>Are there any conclusions you can draw?</li>
-<li>What were you not able to do due to not having the R knowledge?</li>
-<li>What other data would be useful to better understand this data?</li>
+<li><p>Write code for a plot and describe what you observe? ggplot(covid_data_orig, aes(x = Date, y = Cases_Asian, color = Cases_Asian) ) + geom_point() Based on the code and the graph shown above, it appears that as time passes, the total number of Covid-19 cases among the Asian population is increasing. The plot should express an upward trend of Covid-19.</p></li>
+<li><p>Are there any conclusions you can draw? It seems like the total number of Covid-19 cases are increasing every month. Which expresses an upward trend of Covid-19.</p></li>
+<li><p>What were you not able to do due to not having the R knowledge? I was not able to create a detailed graph which includes more than 3 different categories.</p></li>
+<li><p>What other data would be useful to better understand this data? Age Data : Age distribution of Covid-19 cases would be useful to provide more detailed trends to the viewers. Environmental Data : Environmental aspects would be useful to the viewers with deeper insights.</p></li>
 </ol>
 
 </main>
